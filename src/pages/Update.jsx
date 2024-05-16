@@ -7,23 +7,22 @@ function Update({editNote}) {
 
   const [note,setNote]=useState(editNote.notes)
 
-  const{id}=editNote
-  console.log(id);
-
   const handleChange=async(e)=>{
     setNote(e.target.value);
 
 
   }
 
-  const handleUpdateChange= async(id,note)=>{
+  const handleUpdateChange= async(noteid,note)=>{
 
-    console.log(`Updates note id is ${id} and note ${note}`);
+    console.log(`Updates note id is ${noteid} and note ${note}`);
     try{
-      await updateNotesAPI(id,note)
+      const result= await updateNotesAPI(noteid, { notes: note })
+      console.log('API response:', result);
       toast.warning("Note updated successfully")
     }catch(err){
-      console.log(err);
+      console.log('Error updating note:', err);
+      toast.error("Failed to update note");
     }
    
 
@@ -36,7 +35,7 @@ function Update({editNote}) {
             
               <textarea type="text" value={note} onChange={e=>handleChange(e)} className='form-control mb-5' rows="3" />
               
-            <button onClick={()=>handleUpdateChange(id,note)} className='btn btn-success mb-3'>Update</button>
+            <button onClick={()=>handleUpdateChange(editNote.id,note)} className='btn btn-success mb-3'>Update</button>
             <Link to={'/'}><button className='btn btn-warning w-100'>Back</button></Link>
         </div>
     </div>
