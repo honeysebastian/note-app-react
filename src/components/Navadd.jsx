@@ -37,8 +37,8 @@ function Navadd({setAddNoteResponse}) {
   }
   return (
     <div>
-      {/* <h1 style={{color:'white',fontSize:'60px'}} className='text-center'>Note App</h1> */}
-      <div style={{ height: '90px'}} className="w-100 d-flex justify-content-center align-items-center bg-warning p-5">
+      <h1 style={{fontSize:'60px'}} className='text-center text-dark bg-warning p-3'>Note App</h1>
+      <div style={{ height: '90px'}} className="w-100 d-flex justify-content-center align-items-center  mt-5">
         <input onChange={e => setNote({ notes: e.target.value })} type="text" className='form-control w-25 me-4' rows="2" placeholder="Enter your note" />
         <button onClick={handleAdd} className='btn btn-light text-danger'>Add Note</button>
       </div>

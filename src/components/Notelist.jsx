@@ -53,8 +53,8 @@ function Notelist({addNoteResponse,setEditNote}) {
                       <tr key={item?.id}>
                       <td>{index+1}</td>
                       <td>{item?.notes}</td>
-                      <td><Link to={'/update'}><button onClick={()=>handleUpdateNote(item)} className='btn btn-success'>Edit</button></Link></td>
-                      <td><button onClick={()=>handleRemoveNote(item?.id)} className='btn btn-danger'>Delete</button></td>
+                      <td><Link to={'/update'}><button onClick={()=>handleUpdateNote(item)} className='btn btn-success'><i className="fa-solid fa-pen-to-square"></i></button></Link></td>
+                      <td><button onClick={()=>handleRemoveNote(item?.id)} className='btn btn-danger'><i className="fa-solid fa-trash"></i></button></td>
   
                   </tr>
 
